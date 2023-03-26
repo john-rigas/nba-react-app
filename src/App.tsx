@@ -1,58 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { TeamList } from './features/team/teamList'; 
+import { Team } from './features/team/team'; 
+import { Rotation } from './features/rotation/rotation'
+import { Routes ,Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+    <div className="flex flex-col">
+      <header className='flex flex-row justify-center bg-blue-900'>
+        <img className="max-h-24 p-2" src="./nba-logo-transparent.png" alt="NBA" />
       </header>
+      <section>
+
+        <Routes>
+          <Route path="/game/:gameId/:teamId" element={<Rotation/>}/> 
+          <Route path="/team/:teamId" element={<Team/>}/>
+          <Route path="/" element={<TeamList/>}/>
+        </Routes>
+      </section>
     </div>
   );
 }
 
 export default App;
+ 
